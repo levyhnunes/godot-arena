@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://i2jk2u1hor4p"]
+
+[ext_resource type="Script" uid="uid://bt2pdu3kuk7ve" path="res://scripts/player.gd" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41eg6"]
+radius = 22.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1562399600 groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_player")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=107587150]
+color = Color(0.3, 0.8, 1, 1)
+polygon = PackedVector2Array(20, 0, -14, -14, -14, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1026169787]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=264608482]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1741145440]
+shape = SubResource("CircleShape2D_41eg6")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
