@@ -59,4 +59,12 @@ position = Vector2(1074, 179)
 [node name="Timer" type="Timer" parent="." unique_id=641268241]
 autostart = true
 
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1722484226]
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1134982343]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
