@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 @export var speed: float = 150.0
 
 var player: Node2D
@@ -15,3 +17,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	velocity = global_position.direction_to(player.global_position) * speed
 	move_and_slide()
+
+func die() -> void:
+	died.emit()
+	queue_free()

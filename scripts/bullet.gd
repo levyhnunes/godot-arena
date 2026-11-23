@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		body.queue_free() # mata o inimigo
+		body.die() # mata o inimigo
 		queue_free() # a bala some
 	if body is StaticBody2D:  # bateu na parede
 		queue_free()  # remove a bala do jogo
